@@ -4,6 +4,7 @@
 <head>
 <%@include file="/lib/bootstrap.jsp"%>
 <%@include file="/lib/googleChart.jsp"%>
+
 <style>
 body {
 	font-family: "Lato", sans-serif;
@@ -64,29 +65,25 @@ body {
 	google.charts.setOnLoadCallback(drawChart);
 	function drawChart() {
 		var data = google.visualization.arrayToDataTable([
-				[ 'Month', '과거', '현재', '목표치' ], [ '1월', 100, 400, 200 ],
-				[ '2월', 1170, 460, 250 ], [ '3월', 660, 1120, 300 ],
-				[ '4월', 1030, 540, 350 ], [ '5월', 100, 340, 2000 ],
-				[ '6월', 100, 340, 2000 ], [ '7월', 100, 340, 2000 ],
-				[ '8월', 100, 340, 2000 ], [ '9월', 100, 340, 2000 ],
-				[ '10월', 100, 340, 2000 ], [ '11월', 100, 340, 2000 ],
-				[ '12월', 100, 340, 2000 ]
+				[ 'Year', 'Shoulder', 'Chest', 'Abdomen', 'Hips', 'Thigh',
+						'Calf' ], [ '2014년', 1170, 460, 250, 100, 300, 700 ],
+				[ '2015년', 660, 1120, 300, 200, 500, 100 ],
+				[ '2015년', 1030, 540, 350, 300, 400, 140 ]
 
 		]);
 
 		var options = {
-			/* chart : {
-				title : 'Company Performance',
-				subtitle : 'Sales, Expenses, and Profit: 2014-2017',
-			} */
-			legend : {
-				position : 'top',
-				maxLines : 3
+			/* 	chart : {
+					title : 'Company Performance',
+					subtitle : 'Sales, Expenses, and Profit: 2014-2017',
+				}, */
+			bars : 'vertical',
+			vAxis : {
+				format : 'decimal'
 			},
-			bar : {
-				groupWidth : '75%'
-			},
-			isStacked : true,
+			height : 400,
+			colors : [ '#1b9e77', '#d95f02', '#7570b3', '#dfdfdf', '#cc91e3',
+					'#dddd00', 'adf0cc' ]
 		};
 
 		var chart = new google.charts.Bar(document
@@ -109,35 +106,44 @@ body {
 	<div id="main">
 		<%@include file="/lib/topMenu.jsp"%>
 		<!-- Content 시작 -->
+		<!-- Shoulder 차트  -->
 		<div class="row">
-			<!-- 구글 차트  -->
-			<div class="col-sm-5 col-offset-sm-2">
+			<div class="col-sm-10 col-offset-sm-2">
 				<h1>Shoulder</h1>
 				<div id="columnchart_material" style="height: 300px;"></div>
-				<!-- 구글 차트  -->
-				<!-- 구글 차트  -->
 			</div>
-			<div class="col-sm-5 col-offset-sm-2">
+		</div>
+		<!-- 구글 차트  -->
+		
+		<!-- Chest 차트  -->
+		<div class="row">
+			<div class="col-sm-10 col-offset-sm-2">
 				<h1>Chest</h1>
 				<div id="columnchart_material_1" style="height: 300px;"></div>
 			</div>
-			<!-- 구글 차트  -->
-			<!-- 구글 차트  -->
-			<div class="col-sm-5 col-offset-sm-2">
+		</div>
+		<!-- 구글 차트  -->
+		
+		<!-- Abdomen 차트  -->
+		<div class="row">
+			<div class="col-sm-10 col-offset-sm-2">
 				<h1>Abdomen</h1>
 				<div id="columnchart_material_2" style="height: 300px;"></div>
 			</div>
-			<!-- 구글 차트  -->
-			<!-- 구글 차트  -->
-			<div class="col-sm-5 col-offset-sm-2">
+		</div>
+		<!-- 구글 차트  -->
+		
+		<!-- Hips 차트  -->
+		<div class="row">
+			<div class="col-sm-10 col-offset-sm-2">
 				<h1>Hips</h1>
 				<div id="columnchart_material_3" style="height: 300px;"></div>
 			</div>
-			<!-- 구글 차트  -->
-
-
-			<!-- Content 끝 -->
 		</div>
+		<!-- 구글 차트  -->
+
+
+		<!-- Content 끝 -->
 	</div>
 
 
